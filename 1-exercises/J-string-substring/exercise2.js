@@ -21,7 +21,8 @@ names[3] = names[3].substring();
 names[4] = names[4].substring();
 
 names.forEach((name) => {
-  console.log(name);
+//                                   \/ got this idea from stack overflow :D
+  console.log(name.substring(0,name.indexOf(" ")));
 });
 
 /* EXPECTED OUTPUT 
