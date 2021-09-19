@@ -5,9 +5,9 @@
 var students = ["Omar", "Austine", "Dany", "Swathi", "Lesley", "Rukmini"];
 var group = ["Austine", "Dany", "Swathi", "Daniel"];
 
-//I essentially just copied this from stack overflow and I 
-//need more work on these, I don't understand it at all.
-var groupIsOnlyStudents = (arr, target) => target.every(v => arr.includes(v)); // complete this statement
+var groupIsOnlyStudents = group.every(x => students.includes(x)); // complete this statement
+//this outputs the function:
+//(studentsArr, groupArr) => groupArr.every(x => studentsArr.includes(x));
 
 if (groupIsOnlyStudents) {
   console.log("The group contains only students");
