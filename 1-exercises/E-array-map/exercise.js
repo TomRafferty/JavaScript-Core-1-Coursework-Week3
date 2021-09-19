@@ -17,6 +17,7 @@ function numbersMultipliedBy100V3Function(number){
 }
 const numbersMultipliedBy100V3 = numbers.map(numbersMultipliedBy100V3Function);
 
-console.log(`Version 1 = ${numbersMultipliedBy100V1}
+console.log(`\
+Version 1 = ${numbersMultipliedBy100V1}
 Version 2 = ${numbersMultipliedBy100V2}
 Version 3 = ${numbersMultipliedBy100V3}`);
