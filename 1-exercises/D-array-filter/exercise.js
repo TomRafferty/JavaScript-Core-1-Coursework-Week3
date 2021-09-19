@@ -7,8 +7,15 @@
 */
 
 var pairsByIndexRaw = [[0, 3], [1, 2], [2, 1], null, [1], false, "whoops"];
+function filterPairs(arr){
+  if (typeof arr === "object" && arr !== null && arr.length == 2){
+    return true;
+}else{
+  return false;
+}
+}
 
-var pairsByIndex; // Complete this statement
+var pairsByIndex = pairsByIndexRaw.filter((x) => filterPairs(x)); // Complete this statement
 
 var students = ["Islam", "Lesley", "Harun", "Rukmini"];
 var mentors = ["Daniel", "Irina", "Mozafar", "Luke"];
