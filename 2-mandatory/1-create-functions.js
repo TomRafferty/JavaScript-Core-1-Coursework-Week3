@@ -26,21 +26,30 @@ Write a function that:
 - Removes any forward slashes (/) in the strings.
 - Makes the strings all lowercase.
 */
-function tidyUpString(arr) {
-  arr.map(function tidy(element){
-    //remove spacing:
-    if (element[0] === " "){
-      element[0] === "";
-    }
-    if (element[element.length] === " "){
-      element[0] === "";
-    }
-    //remove '/'
-    element.replace("/", "");
-    //lowercase
-    element.toLowerCase();
-  })
+function removeChars(element){
+  console.log(`I'm the passed element ${element}`);
+  let elemToArr = element.split()
+  if(elemToArr[0] === " "){
+      elemToArr[0] = "";
+  }if (elemToArr[(elemToArr.length - 1)] === ""){
+    elemToArr[elemToArr.length - 1] = "";
+  }
+  element = elemToArr.join();
+  //remove any '/':
+  element.replace(/\//g,"");
+  //lower case all
+  element.toLowerCase();
+  
+  return element;
 }
+function tidyUpString(arr) {
+  //we have an array filled with strings
+  arr.map(x => removeChars(x));
+  return arr;
+}
+let testArr = [" HELLO/", "wor/ld !"]
+
+console.log(tidyUpString(testArr)); 
 
 /*
 Write a function that:
@@ -63,7 +72,7 @@ function formatPercentage() {
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== */
-
+/*
 test("first5 function works for more than five elements", () => {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
   const copyOfOriginal = numbers.slice();
@@ -158,3 +167,4 @@ test("formatPercentage function works", () => {
     "0.37%",
   ]);
 });
+*/
