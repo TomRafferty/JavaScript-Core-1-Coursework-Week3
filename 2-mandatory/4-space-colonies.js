@@ -15,7 +15,15 @@
   
 */
 
-function getSettlers() {}
+function getSettlers(arr) {
+  //checks each element of arr
+  //must start with 'A'
+  //must end in 'family'
+  function siv(x){
+      return x[0] === 'A' && x.includes('family');
+  }
+  return arr.filter(siv);
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
