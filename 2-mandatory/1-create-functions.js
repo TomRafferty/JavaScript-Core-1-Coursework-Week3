@@ -4,7 +4,7 @@ Write a function that:
 - Returns a new array containing the first five elements of the passed array.
 */
 function first5(arr) {
-  return arr.slice(0,4);
+  return arr.slice(0, 5);
 }
 
 /*
@@ -13,7 +13,7 @@ Write a function that:
 - Returns a new array containing the same elements, except sorted.
 */
 function sortArray(arr) {
-  return arr.sort();
+  return arr.slice().sort();
 }
 
 /*
@@ -26,30 +26,9 @@ Write a function that:
 - Removes any forward slashes (/) in the strings.
 - Makes the strings all lowercase.
 */
-function removeChars(element){
-  console.log(`I'm the passed element ${element}`);
-  let elemToArr = element.split()
-  if(elemToArr[0] === " "){
-      elemToArr[0] = "";
-  }if (elemToArr[(elemToArr.length - 1)] === ""){
-    elemToArr[elemToArr.length - 1] = "";
-  }
-  element = elemToArr.join();
-  //remove any '/':
-  element.replace(/\//g,"");
-  //lower case all
-  element.toLowerCase();
-  
-  return element;
-}
 function tidyUpString(arr) {
-  //we have an array filled with strings
-  arr.map(x => removeChars(x));
-  return arr;
+  return arr.map((x) => x.trim().replace(/\//g, "").toLowerCase());
 }
-let testArr = [" HELLO/", "wor/ld !"]
-
-console.log(tidyUpString(testArr)); 
 
 /*
 Write a function that:
@@ -57,7 +36,10 @@ Write a function that:
 - Returns a new array containing the same elements, but without the element at the passed index.
 */
 
-function remove() {
+function remove(arr, index) {
+  let arrCopy = arr.slice();
+  let removed = arrCopy.splice(index, 1);
+  return arrCopy;
 }
 
 /*
@@ -68,11 +50,19 @@ Write a function that:
 - Numbers greater 100 must be replaced with 100.
 */
 
-function formatPercentage() {
+function formatPercentage(arr) {
+  function formatAll(x) {
+    x = Math.round(x * 100) / 100;
+    if (x > 100) {
+      x = 100;
+    }
+    return (x = `${x}%`);
+  }
+  return arr.map(formatAll);
 }
 
 /* ======= TESTS - DO NOT MODIFY ===== */
-/*
+
 test("first5 function works for more than five elements", () => {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
   const copyOfOriginal = numbers.slice();
@@ -167,4 +157,3 @@ test("formatPercentage function works", () => {
     "0.37%",
   ]);
 });
-*/

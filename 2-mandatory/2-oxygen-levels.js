@@ -10,13 +10,15 @@
 
     Some string methods that might help you here are .replace() and .substring(). 
 */
+//try this - npm test -- --testPathPattern mandatory/1-writer.js
+//npm test -- SomeTestFileToRun
 
 function findSafeOxygenLevel(arr) {
-  
-  let newArr = arr.map(x => x.replace(/\%/g,'')).map(x => parseFloat(x));
+  //add check for includes %
+  let newArr = arr.filter(x => x.includes("%")).map(x => x.replace(/\%/g,'')).map(x => parseFloat(x));
   let value = newArr.find(x => x > 19.5 && x < 23.5);
   if (value !== undefined){
-    return value.toString() + "%";
+    return `${value.toString()}%`;
   }
 }
 
